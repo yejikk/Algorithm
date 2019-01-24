@@ -1,6 +1,5 @@
 def wall(newlist, x, y):
     if (x < 0 or x >= 5) or (y < 0 or y >= 5): return False
-    # if y < 0 or y >= 5: return False
     else :
         if newlist[x][y] != 0: return False
         else : return True

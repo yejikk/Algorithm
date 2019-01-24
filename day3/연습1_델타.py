@@ -12,7 +12,7 @@ def iswall(x, y):
     if x < 0 or x >= 5: return True
     if y < 0 or y >= 5 : return True
     return False
-
+# 만약 함수를 쓰지 않는다면 return True 대신 continue를 쓴다.
 def calAbs(y, x):
     if y-x > 0: return y-x
     else: return x-y
