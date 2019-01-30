@@ -3,6 +3,8 @@ sys.stdin = open("이진탐색.txt")
 
 test = int(input())
 
+# A, B를 나눠서 변수를 선언하지 않고 함수하나 만들어놓고 2번 호출하면
+# 코드가 더 간단해진다.
 def binarysearch(page, pa, pb):
     Aleft = 1
     Aright = page

@@ -27,5 +27,3 @@ for tc in range(1, test+1):
             if arr[k][l] == 3:
                 cnt += 1
     print(f'#{tc} {cnt}')
-
-
