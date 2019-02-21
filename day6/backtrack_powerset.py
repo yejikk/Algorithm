@@ -1,9 +1,10 @@
 # 완전 검색으로 부분집합구하기
 def process_solution(a, k): # 출력하는 함수
+    result = []
     for i in range(1, k+1):
         if a[i]:
-            print(data[i], end='')
-    print()
+            result.append(data[i])
+    print(result)
 
 def make_candidates(a, k, input, c): # 0 또는 1일 경우를 계산해주기 위해서
     c[0] = True

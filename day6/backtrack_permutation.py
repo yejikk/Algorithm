@@ -5,7 +5,7 @@ def process_solution(a, k): # 출력하는 함수
     print()
 
 def make_candidates(a, k, input, c): # 사용한 번호는 재사용할 수 없기 때문에 check
-    in_perm = [False] * NMAX
+    in_perm = [False] * NMAX # visited 역할
 
     for i in range(1, k):
         in_perm[a[i]] = True
