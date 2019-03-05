@@ -1,14 +1,18 @@
 import sys
-sys.stdin = open('노드.txt')
+sys.stdin = open('노드의거리.txt')
 
 def bfs(v):
-    global node, N, end
-    visited = [0] * (N+1)
-    cnt = 0
-    queue = []
+    global G, V
+    visited = [0] * (V+1)
+    queue=[]
     queue.append(v)
-    while queue:
-        v = queue.pop()
+    while len(queue) != 0:
+        v = queue.pop(0)
+        if not visited[v]:
+            visited[v] = 1
+            for w in range(1, V+1):
+                if G[v][w] == 1 and visited[w] == 0:
+                    queue.append(w)
 
 
 test = int(input())
