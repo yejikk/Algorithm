@@ -1,53 +1,43 @@
 import sys
 sys.stdin = open('미로의거리.txt')
-
+'''
+BFS 차수를 이용해서 문제풀기!
+visited check를 이용하기 [x][y]가능
+'''
 def wall(tx, ty, n):
     if tx < 0 or tx >= n:
         return False
     if ty < 0 or ty >= n:
         return False
-    if arr[tx][ty] == 9:
-        return False
-    elif arr[tx][ty] == 1:
+    if arr[tx][ty] == 1:
         return False
     return True
 
 def distance(x, y, n):
-    global arr
-
+    global arr, visited
     dx = [-1, 1, 0, 0]
     dy = [0, 0, -1, 1]
-    flag = 0
     queue = []
-    cnt = 0
+    flag = 0
     queue.append([x, y])
-    while queue:
-        exit = []
-        wallcnt = 0
-        v = queue.pop(0)
-        arr[v[0]][v[1]] = 9
-        i = v[0]
-        j = v[1]
-        for k in range(4):
-            tx = i + dx[k]
-            ty = j + dy[k]
+    visited[x][y] = 1
+    while len(queue) != 0:
+        t = queue.pop(0)
+        x = t[0]
+        y = t[1]
+        for i in range(4):
+            tx = x + dx[i]
+            ty = y + dy[i]
             if wall(tx, ty, n):
                 if arr[tx][ty] == 3:
                     flag = 1
-                    return cnt
+                    return visited[x][y] - 1
                     break
-                else:
-                    cnt += 1
+                elif arr[tx][ty] == 0 and visited[tx][ty] == 0:
                     queue.append([tx, ty])
-                    arr[tx][ty] = 9
-            else:
-                wallcnt += 1
-
+                    visited[tx][ty] = visited[x][y] + 1
         if flag:
             break
-        else:
-            if wallcnt >= 4:
-                cnt -= wallcnt
     return 0
 
 test = int(input())
@@ -55,6 +45,7 @@ test = int(input())
 for tc in range(1, test+1):
     N = int(input())
     arr = [[0]*N for _ in range(N)]
+    visited = [[0]*N for _ in range(N)]
     flag = 0
 
     for i in range(N):
