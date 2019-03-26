@@ -1,4 +1,5 @@
 def myprint(q):
+    random = []
     while q:
         q -= 1
         print('{}'.format(t[q]), end=' ')
