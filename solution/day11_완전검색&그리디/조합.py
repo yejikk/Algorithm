@@ -5,6 +5,8 @@ def myprint(q):
     print()
 def comb(n, r, q):
     if r == 0:
+        for i in range(q-1, -1, -1):
+            print(T[i], end=' ')
         myprint(q)
     elif n < r:
         return
@@ -14,6 +16,6 @@ def comb(n, r, q):
         comb(n-1, r, q)
 
 A =[1,2,3,4]
-T =[0] * 3
+T =[0] * 4
 
-comb(4,3,3)
+comb(4,2,2)
